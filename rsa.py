@@ -23,3 +23,8 @@ def generate_prime(minimum, maximum):
         if is_prime(num):
             return num
     
+def gcd(a, b):
+
+    while b != 0:
+        a, b = b, a % b
+    return a
