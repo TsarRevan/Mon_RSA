@@ -45,3 +45,33 @@ def mod_inverse(e, phi):
     if gcd != 1:
         raise ValueError("L'inverse modulo n'existe pas.")
     return x % phi
+
+def generate_key(): 
+    print ("Génération des clefs publicque et privé")
+    p = generate_prime(10, 100)
+    q = generate_prime(10, 100)
+    while p == q:
+        q = generate_prime(10, 100)
+
+    n = p * q 
+    phi = (p - 1) * (q - 1)
+
+    e = random.randint(2, phi - 1)
+    while gcd(e, phi) !=1:
+        e = random.randint(2, phi - 1)
+
+    d = mod_inverse(e, phi)
+
+    print(f"Clef publique : (e = {e}, n = {n})")
+    print(f"clef privé : (d = {d}, n = {n})")
+
+def encrypt(message, e, n): 
+    "Chiffrage le message avec la clef publique"
+encrypted_message = [pow(ord(char), e, n)for char in message]
+print(f"Message chiffré : {''.join(map(str, encrypted_message)) }")
+
+def decrypt(encrypted_message, d, n):
+    "Déchiffre un message avec la clé privée."
+    decrypted_message = ''.join(
+        chr(pow(int(char), d, n)) for char in encrypted_message.split())
+    print(f"Message déchiffré : {decrypted_message}")
