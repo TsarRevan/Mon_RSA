@@ -10,6 +10,8 @@ Ce projet de cours a pour objectif de comprendre les bases de la cryptographie e
 - [sys](https://docs.python.org/fr/3/library/sys.html)
 - [math](https://docs.python.org/3/library/math.html)
 - [random](https://docs.python.org/3/library/random.html)
+- [json](https://docs.python.org/3/library/json.html)
+- [Time](https://docs.python.org/3/library/time.html)
 
 ## Authors
 
